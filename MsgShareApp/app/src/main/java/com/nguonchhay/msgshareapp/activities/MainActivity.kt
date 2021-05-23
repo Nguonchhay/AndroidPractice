@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.nguonchhay.msgshareapp.R
+import com.nguonchhay.msgshareapp.showToast
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,8 +18,7 @@ class MainActivity : AppCompatActivity() {
         val btnShowToast: Button = findViewById<Button>(R.id.btnShowToast)
         btnShowToast.setOnClickListener {
             Log.i("MainActivity", "Clicked on button")
-
-            Toast.makeText(this, "Clicked me to toast", Toast.LENGTH_LONG).show()
+            showToast("Clicked me to toast")
         }
 
         val message: String = findViewById<EditText>(R.id.editMessage).text.toString()
