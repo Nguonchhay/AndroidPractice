@@ -40,5 +40,11 @@ class MainActivity : AppCompatActivity() {
 
             startActivity(Intent.createChooser(intent, "Share Message To:"))
         }
+
+        val btnRecycleView: Button = findViewById(R.id.btnRecycleView)
+        btnRecycleView.setOnClickListener {
+            val intent = Intent(this, HobbiesActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
