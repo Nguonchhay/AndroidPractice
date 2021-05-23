@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.nguonchhay.msgshareapp.R
 import com.nguonchhay.msgshareapp.models.Hobby
@@ -28,9 +29,19 @@ class HobbyAdapter (val context: Context, val hobbies: List<Hobby>) : RecyclerVi
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val txtTitle: TextView = itemView.findViewById(R.id.txtTitle)
+        private var hobby: Hobby? = null
+        private var pos: Int = 0
+
+        init {
+            itemView.setOnClickListener {
+                Toast.makeText(context, "You select: " + this.hobby!!.title, Toast.LENGTH_SHORT).show()
+            }
+        }
 
         fun setData(hobby: Hobby?, pos: Int) {
             txtTitle.text = hobby!!.title
+            this.hobby = hobby
+            this.pos = pos
         }
     }
 }
