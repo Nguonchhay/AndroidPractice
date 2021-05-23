@@ -1,8 +1,9 @@
-package com.nguonchhay.msgshareapp
+package com.nguonchhay.msgshareapp.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.nguonchhay.msgshareapp.R
 
 class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

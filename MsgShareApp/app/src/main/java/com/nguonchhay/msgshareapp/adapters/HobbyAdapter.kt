@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.nguonchhay.msgshareapp.R
 import com.nguonchhay.msgshareapp.models.Hobby
 
-class HobbyAdapter (val context: Context, val hobbies: List<Hobby>) : RecyclerView.Adapter<HobbyAdapter.MyViewHolder>() {
+class HobbyAdapter (val context: Context, private val hobbies: List<Hobby>) : RecyclerView.Adapter<HobbyAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view: View = LayoutInflater.from(context).inflate(R.layout.hobbies_item, parent, false)
