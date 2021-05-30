@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ចែករំលេកអេប</string>
+    <string name="show_toast">បង្ហាញ Toast</string>
+    <string name="enter_your_message">បញ្ចូលសាររបស់អ្នក</string>
+    <string name="send">ផ្ញើរ</string>
+    <string name="share_message">ចែករំលែកសារ</string>
+    <string name="recycle_view_demo">បង្ហាញពីRecycleView</string>
+    <string name="your_message">សាររបស់អ្នក</string>
+</resources>

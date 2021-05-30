@@ -1,3 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MsgShareApp</string>
+    <string name="show_toast">Show Toast</string>
+    <string name="enter_your_message">Enter your message</string>
+    <string name="send">Send</string>
+    <string name="share_message">Share Message</string>
+    <string name="recycle_view_demo">Recycle View Demo</string>
+    <string name="your_message">Your Message</string>
+
+    <string name="click_button">Clicked on button</string>
+    <string name="click_to_toast">Clicked me to toast</string>
 </resources>

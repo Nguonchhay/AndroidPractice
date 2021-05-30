@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import com.nguonchhay.msgshareapp.R
 import com.nguonchhay.msgshareapp.showToast
 
@@ -17,8 +16,8 @@ class MainActivity : AppCompatActivity() {
 
         val btnShowToast: Button = findViewById<Button>(R.id.btnShowToast)
         btnShowToast.setOnClickListener {
-            Log.i("MainActivity", "Clicked on button")
-            showToast("Clicked me to toast")
+            Log.i("MainActivity", resources.getString(R.string.click_button))
+            showToast(resources.getString(R.string.click_to_toast))
         }
 
         val message: String = findViewById<EditText>(R.id.editMessage).text.toString()
