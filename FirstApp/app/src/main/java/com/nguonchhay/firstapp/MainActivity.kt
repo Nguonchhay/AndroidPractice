@@ -22,5 +22,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, SecondActivity::class.java)
             startActivity(intent)
         }
+
+        binding.btnContact.setOnClickListener {
+            val intent = Intent(this, ContactActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
