@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.nguonchhay.androidcomponents.activities.FragmentStyle1Activity
+import com.nguonchhay.androidcomponents.activities.RecyclerViewActivity
 import com.nguonchhay.androidcomponents.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +18,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnFragmentStyle1.setOnClickListener {
             val intent = Intent(this, FragmentStyle1Activity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnRecycleview.setOnClickListener {
+            val intent = Intent(this, RecyclerViewActivity::class.java)
             startActivity(intent)
         }
     }

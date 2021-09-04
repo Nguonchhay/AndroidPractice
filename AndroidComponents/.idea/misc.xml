@@ -5,9 +5,11 @@
       <map>
         <entry key="app/src/main/res/layout/activity_fragment_style1.xml" value="0.15364583333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19655797101449277" />
+        <entry key="app/src/main/res/layout/activity_recycler_view.xml" value="0.19655797101449277" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.19655797101449277" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.19655797101449277" />
         <entry key="app/src/main/res/layout/fragment_third.xml" value="0.19655797101449277" />
+        <entry key="app/src/main/res/layout/item_todo.xml" value="0.15070921985815602" />
       </map>
     </option>
   </component>
