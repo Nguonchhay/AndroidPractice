@@ -33,7 +33,7 @@
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:id="@+id/tabInclude"
+        android:id="@+id/tabContainer"
         android:layout_below="@+id/toolbar"
         app:tabTextColor="@color/design_default_color_on_secondary"
         app:tabSelectedTextColor="@color/design_default_color_primary"
@@ -82,13 +82,13 @@
 
     </com.google.android.material.tabs.TabLayout>
 
-    <androidx.viewpager.widget.ViewPager
+    <androidx.viewpager2.widget.ViewPager2
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/fragmentContainer"
-        android:layout_below="@id/tabInclude"
+        android:layout_below="@id/tabContainer"
         android:layout_marginTop="15dp">
 
-    </androidx.viewpager.widget.ViewPager>
+    </androidx.viewpager2.widget.ViewPager2>
 
 </RelativeLayout>

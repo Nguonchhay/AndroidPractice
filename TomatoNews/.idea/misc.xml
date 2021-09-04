@@ -4,7 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/entertainment_fragement.xml" value="0.23233695652173914" />
+        <entry key="app/src/main/res/layout/fragment_entertainment.xml" value="0.23233695652173914" />
+        <entry key="app/src/main/res/layout/fragment_health.xml" value="0.23233695652173914" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.23233695652173914" />
+        <entry key="app/src/main/res/layout/fragment_sport.xml" value="0.23233695652173914" />
+        <entry key="app/src/main/res/layout/fragment_technology.xml" value="0.23233695652173914" />
+        <entry key="app/src/main/res/layout/health_fragement.xml" value="0.23233695652173914" />
         <entry key="app/src/main/res/layout/home_fragement.xml" value="0.23233695652173914" />
+        <entry key="app/src/main/res/layout/sport_fragement.xml" value="0.23233695652173914" />
+        <entry key="app/src/main/res/layout/technology_fragement.xml" value="0.23233695652173914" />
       </map>
     </option>
   </component>
