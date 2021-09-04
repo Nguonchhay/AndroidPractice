@@ -18,15 +18,25 @@ class FragmentStyle1Activity : AppCompatActivity() {
         binding = ActivityFragmentStyle1Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Prepare First Fragment object
+        val fragment = FirstFragment()
+        val bundle = Bundle()
+        bundle.putString("F1_TEXT", "Fragment 1 Content")
+        fragment.arguments = bundle
+
         // Set FirstFragment as default
-        replaceFragment(FirstFragment())
+        replaceFragment(fragment)
 
         binding.btnFirst.setOnClickListener {
-            replaceFragment(FirstFragment())
+            replaceFragment(fragment)
         }
 
         binding.btnSecond.setOnClickListener {
-            replaceFragment(SecondFragment())
+            val fragment2 = SecondFragment()
+            val bundle2 = Bundle()
+            bundle2.putString("F2_TEXT", "Fragment 2 Content")
+            fragment2.arguments = bundle2
+            replaceFragment(fragment2)
         }
 
         binding.btnThird.setOnClickListener {

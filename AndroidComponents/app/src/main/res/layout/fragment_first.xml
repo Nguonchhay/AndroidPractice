@@ -10,6 +10,7 @@
         android:layout_height="match_parent"
         android:textSize="20sp"
         android:gravity="center_vertical|center_horizontal"
-        android:text="First Fragment" />
+        android:text="Text 1"
+        android:id="@+id/text1"/>
 
 </RelativeLayout>
