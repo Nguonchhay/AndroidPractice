@@ -28,6 +28,13 @@
             android:layout_marginStart="10dp"
             android:text="RecycleView"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnViewPager2"
+            android:layout_marginStart="10dp"
+            android:text="ViewPager2"/>
+
     </LinearLayout>
 
 </RelativeLayout>
