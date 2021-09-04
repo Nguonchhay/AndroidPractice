@@ -1,12 +1,10 @@
 package com.nguonchhay.androidcomponents
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import com.nguonchhay.androidcomponents.activities.FragmentStyle1Activity
 import com.nguonchhay.androidcomponents.databinding.ActivityMainBinding
-import com.nguonchhay.androidcomponents.fragments.FirstFragment
-import com.nguonchhay.androidcomponents.fragments.SecondFragment
-import com.nguonchhay.androidcomponents.fragments.ThirdFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,26 +15,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Set FirstFragment as default
-        replaceFragment(FirstFragment())
-
-        binding.btnFirst.setOnClickListener {
-            replaceFragment(FirstFragment())
+        binding.btnFragmentStyle1.setOnClickListener {
+            val intent = Intent(this, FragmentStyle1Activity::class.java)
+            startActivity(intent)
         }
-
-        binding.btnSecond.setOnClickListener {
-            replaceFragment(SecondFragment())
-        }
-
-        binding.btnThird.setOnClickListener {
-            replaceFragment(ThirdFragment())
-        }
-    }
-
-    private fun replaceFragment(fragment: Fragment) {
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragmentContainer, fragment)
-        fragmentTransaction.commit()
     }
 }
