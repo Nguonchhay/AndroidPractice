@@ -42,6 +42,13 @@
             android:layout_marginStart="10dp"
             android:text="ViewPager2 with Tab"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnBottomNav"
+            android:layout_marginStart="10dp"
+            android:text="Bottom Navigation"/>
+
     </LinearLayout>
 
 </RelativeLayout>

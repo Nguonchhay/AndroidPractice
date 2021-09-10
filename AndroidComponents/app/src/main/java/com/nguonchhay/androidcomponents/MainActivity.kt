@@ -3,10 +3,7 @@ package com.nguonchhay.androidcomponents
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.nguonchhay.androidcomponents.activities.FragmentStyle1Activity
-import com.nguonchhay.androidcomponents.activities.RecyclerViewActivity
-import com.nguonchhay.androidcomponents.activities.ViewPager2Activity
-import com.nguonchhay.androidcomponents.activities.ViewPagerWithTabActivity
+import com.nguonchhay.androidcomponents.activities.*
 import com.nguonchhay.androidcomponents.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -35,6 +32,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnViewPagerWithTab.setOnClickListener {
             val intent = Intent(this, ViewPagerWithTabActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnBottomNav.setOnClickListener {
+            val intent = Intent(this, BottomNavActivity::class.java)
             startActivity(intent)
         }
     }
