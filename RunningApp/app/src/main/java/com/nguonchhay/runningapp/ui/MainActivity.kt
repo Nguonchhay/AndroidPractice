@@ -1,4 +1,4 @@
-package com.nguonchhay.runningapp
+package com.nguonchhay.runningapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
