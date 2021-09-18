@@ -7,6 +7,8 @@
         <entry key="app/src/main/res/layout/activity_fragment_style1.xml" value="0.15364583333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19655797101449277" />
         <entry key="app/src/main/res/layout/activity_recycler_view.xml" value="0.19655797101449277" />
+        <entry key="app/src/main/res/layout/activity_result_from_start.xml" value="0.14387031408308004" />
+        <entry key="app/src/main/res/layout/activity_start_for_result.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_view_pager2.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_view_pager_with_tab.xml" value="0.1381340579710145" />
         <entry key="app/src/main/res/layout/fragment_bottom_nav_first.xml" value="0.15070921985815602" />

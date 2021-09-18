@@ -39,5 +39,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, BottomNavActivity::class.java)
             startActivity(intent)
         }
+
+        binding.btnActivityForResult.setOnClickListener {
+            val intent = Intent(this, StartForResultActivity::class.java)
+            intent.putExtra("msg", "Cool it works")
+            startActivity(intent)
+        }
     }
 }
