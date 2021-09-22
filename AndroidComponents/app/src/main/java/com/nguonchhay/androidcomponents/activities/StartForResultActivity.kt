@@ -1,5 +1,6 @@
 package com.nguonchhay.androidcomponents.activities
 
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -8,10 +9,12 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResultCallback
+import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import com.nguonchhay.androidcomponents.contracts.ResultFromActivityContract
 import com.nguonchhay.androidcomponents.databinding.ActivityStartForResultBinding
+import com.theartofdev.edmodo.cropper.CropImage
 
 private var REQUEST_CODE_PERMISSION = 123
 
@@ -20,6 +23,18 @@ class StartForResultActivity : AppCompatActivity() {
     private val LOG_TAG = "AC LOG: "
 
     lateinit var binding: ActivityStartForResultBinding
+
+    private val cropActivityResultContract = object: ActivityResultContract<Any?, Uri>() {
+        override fun createIntent(context: Context, input: Any?): Intent {
+            return CropImage.activity()
+                    .setAspectRatio(16, 9)
+                    .getIntent(this@StartForResultActivity)
+        }
+
+        override fun parseResult(resultCode: Int, intent: Intent?): Uri? {
+            return CropImage.getActivityResult(intent)?.uri
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,7 +71,6 @@ class StartForResultActivity : AppCompatActivity() {
         // End Gallery
 
         // Camera
-
         val takePhoto = registerForActivityResult(
             ActivityResultContracts.TakePicture(),
             ActivityResultCallback {
@@ -66,8 +80,13 @@ class StartForResultActivity : AppCompatActivity() {
             }
         )
 
+        val cropImageLauncher = registerForActivityResult(cropActivityResultContract) {
+            it?.let { uri -> binding.imgPhoto.setImageURI(uri) }
+        }
+
         binding.btnTakePicture.setOnClickListener {
-            takePhoto.launch(Uri.parse("acimages"))
+            //takePhoto.launch(Uri.parse("acimages"))
+            cropImageLauncher.launch(null)
         }
 
         // End Camera
@@ -93,7 +112,7 @@ class StartForResultActivity : AppCompatActivity() {
     ) {
         // super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_CODE_PERMISSION) {
-            Log.d("OHLALA => ", grantResults.toString())
+            Log.d(LOG_TAG, grantResults.toString())
         }
     }
 }
