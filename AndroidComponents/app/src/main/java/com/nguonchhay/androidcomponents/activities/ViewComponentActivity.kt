@@ -1,5 +1,6 @@
 package com.nguonchhay.androidcomponents.activities
 
+import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -9,6 +10,8 @@ import android.widget.Toast
 import androidx.core.view.get
 import com.nguonchhay.androidcomponents.R
 import com.nguonchhay.androidcomponents.databinding.ActivityViewComponentBinding
+import com.nguonchhay.androidcomponents.extensions.hideSoftKeyboard
+import java.util.*
 
 class ViewComponentActivity : AppCompatActivity() {
 
@@ -18,6 +21,10 @@ class ViewComponentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityViewComponentBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.viewComponentActivity.setOnClickListener {
+            hideSoftKeyboard()
+        }
 
         binding.btnFloatSend.setOnClickListener {
             var allText: String? = ""
@@ -31,6 +38,23 @@ class ViewComponentActivity : AppCompatActivity() {
             allText += binding.spinDay.selectedItem.toString()
 
             Toast.makeText(this, allText, Toast.LENGTH_LONG).show()
+        }
+
+        // Calendar
+        val calendar = Calendar.getInstance()
+        val datePickerDialog = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+            calendar.set(year, month, dayOfMonth)
+            binding.editDate.setText("$dayOfMonth-$month-$year")
+        }
+
+        binding.imgDatePicker.setOnClickListener {
+            DatePickerDialog(
+                this,
+                datePickerDialog,
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            ).show()
         }
 
         binding.spinDay.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
