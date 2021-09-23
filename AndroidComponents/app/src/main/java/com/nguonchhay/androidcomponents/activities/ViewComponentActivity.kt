@@ -1,15 +1,16 @@
 package com.nguonchhay.androidcomponents.activities
 
 import android.app.DatePickerDialog
+import android.content.RestrictionEntry.TYPE_NULL
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.core.view.get
 import com.nguonchhay.androidcomponents.R
 import com.nguonchhay.androidcomponents.databinding.ActivityViewComponentBinding
+import com.nguonchhay.androidcomponents.extensions.disableClick
 import com.nguonchhay.androidcomponents.extensions.hideSoftKeyboard
 import java.util.*
 
@@ -42,19 +43,28 @@ class ViewComponentActivity : AppCompatActivity() {
 
         // Calendar
         val calendar = Calendar.getInstance()
-        val datePickerDialog = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+        val datePickerDialogListener = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
             calendar.set(year, month, dayOfMonth)
             binding.editDate.setText("$dayOfMonth-$month-$year")
         }
 
+        // Disable EditDate
+        binding.editDate.disableClick()
+
+        val datePickerDialog = DatePickerDialog(
+            this,
+            datePickerDialogListener,
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        )
+
+        binding.editDate.setOnClickListener {
+            datePickerDialog.show()
+        }
+
         binding.imgDatePicker.setOnClickListener {
-            DatePickerDialog(
-                this,
-                datePickerDialog,
-                calendar.get(Calendar.YEAR),
-                calendar.get(Calendar.MONTH),
-                calendar.get(Calendar.DAY_OF_MONTH)
-            ).show()
+            datePickerDialog.show()
         }
 
         binding.spinDay.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
