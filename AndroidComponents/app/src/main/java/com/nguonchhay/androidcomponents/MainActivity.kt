@@ -15,6 +15,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btnViewComponent.setOnClickListener {
+            val intent = Intent(this, ViewComponentActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.btnFragmentStyle1.setOnClickListener {
             val intent = Intent(this, FragmentStyle1Activity::class.java)
             startActivity(intent)
