@@ -3,11 +3,14 @@ package com.nguonchhay.androidcomponents.activities
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
@@ -71,22 +74,27 @@ class StartForResultActivity : AppCompatActivity() {
         // End Gallery
 
         // Camera
+//        val takePhoto = registerForActivityResult(
+//            ActivityResultContracts.StartActivityForResult(),
+//            ActivityResultCallback<ActivityResult>() { activityResult ->
+//                if (activityResult.resultCode == RESULT_OK) {
+//                    val bitmap = activityResult.data?.extras?.get("data") as Bitmap
+//                    binding.imgPhoto.setImageBitmap(bitmap)
+//                }
+//            }
+//        )
         val takePhoto = registerForActivityResult(
-            ActivityResultContracts.TakePicture(),
-            ActivityResultCallback {
-                if (it) {
-                    Log.d(LOG_TAG, "ActivityResultContracts.TakePicture()")
-                }
-            }
-        )
-
-        val cropImageLauncher = registerForActivityResult(cropActivityResultContract) {
-            it?.let { uri -> binding.imgPhoto.setImageURI(uri) }
+            ActivityResultContracts.StartActivityForResult()
+        ) {
+            val bitmap = it?.data?.extras?.get("data") as Bitmap
+            binding.imgPhoto.setImageBitmap(bitmap)
         }
 
         binding.btnTakePicture.setOnClickListener {
-            //takePhoto.launch(Uri.parse("acimages"))
-            cropImageLauncher.launch(null)
+            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            if (intent.resolveActivity(packageManager) != null) {
+                takePhoto.launch(intent)
+            }
         }
 
         // End Camera

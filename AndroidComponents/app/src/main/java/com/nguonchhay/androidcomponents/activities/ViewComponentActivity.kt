@@ -40,7 +40,7 @@ class ViewComponentActivity : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-                Toast.makeText(this@ViewComponentActivity, adapterView?.getItemAtPosition(position).toString(), Toast.LENGTH_LONG).show()
+                Toast.makeText(this@ViewComponentActivity, adapterView?.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
