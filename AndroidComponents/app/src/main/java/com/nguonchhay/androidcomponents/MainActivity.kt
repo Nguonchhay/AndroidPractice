@@ -50,5 +50,11 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("msg", "Cool it works")
             startActivity(intent)
         }
+
+        binding.btnRoomWithContact.setOnClickListener {
+            val intent = Intent(this, RoomWithContactActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

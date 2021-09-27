@@ -18,6 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidComponents">
         <activity
+            android:name=".activities.RoomContactListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.RoomWithContactActivity"
+            android:exported="true" />
+        <activity
             android:name=".activities.ViewComponentActivity"
             android:exported="true" />
         <activity

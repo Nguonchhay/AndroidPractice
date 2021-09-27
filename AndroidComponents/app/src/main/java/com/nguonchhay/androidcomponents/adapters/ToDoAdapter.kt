@@ -11,9 +11,7 @@ import com.nguonchhay.androidcomponents.dataclasses.ToDoData
 
 class ToDoAdapter(var todos: List<ToDoData>): RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder>() {
 
-    inner class ToDoViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-
-    }
+    inner class ToDoViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ToDoViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_todo, parent, false)
