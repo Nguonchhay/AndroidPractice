@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidComponents">
         <activity
+            android:name=".activities.RecyclerViewWithCardViewActivity"
+            android:exported="true" />
+        <activity
             android:name=".activities.CardViewActivity"
             android:exported="true" />
         <activity

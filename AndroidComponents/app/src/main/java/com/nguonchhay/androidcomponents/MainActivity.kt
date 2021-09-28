@@ -35,6 +35,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.btnRecycleviewWithCardView.setOnClickListener {
+            val intent = Intent(this, RecyclerViewWithCardViewActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.btnViewPager2.setOnClickListener {
             val intent = Intent(this, ViewPager2Activity::class.java)
             startActivity(intent)
