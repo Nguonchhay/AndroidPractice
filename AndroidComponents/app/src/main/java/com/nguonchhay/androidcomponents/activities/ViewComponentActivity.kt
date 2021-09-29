@@ -1,7 +1,8 @@
 package com.nguonchhay.androidcomponents.activities
 
 import android.app.DatePickerDialog
-import android.content.RestrictionEntry.TYPE_NULL
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -65,6 +66,26 @@ class ViewComponentActivity : AppCompatActivity() {
 
         binding.imgDatePicker.setOnClickListener {
             datePickerDialog.show()
+        }
+
+        // DatePicker with scroll option
+        val datePickerDialogScrollListener = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+            calendar.set(year, month, dayOfMonth)
+            binding.editDateScroll.setText("$dayOfMonth-${month + 1}-$year")
+        }
+
+        val datePickerDialogScroll = DatePickerDialog(
+            this,
+            android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+            datePickerDialogScrollListener,
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        )
+        datePickerDialogScroll.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        binding.editDateScroll.setOnClickListener {
+            datePickerDialogScroll.show()
         }
 
         binding.spinDay.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
