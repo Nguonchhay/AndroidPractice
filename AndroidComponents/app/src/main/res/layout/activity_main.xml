@@ -24,6 +24,13 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/btnGridView"
+            android:layout_marginStart="10dp"
+            android:text="GridView"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/btnFragmentStyle1"
             android:layout_marginStart="10dp"
             android:text="Fragment Style 1"/>

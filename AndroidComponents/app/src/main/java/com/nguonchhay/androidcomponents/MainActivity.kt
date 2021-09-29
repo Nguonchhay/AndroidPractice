@@ -20,6 +20,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.btnGridView.setOnClickListener {
+            val intent = Intent(this, GridViewActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.btnFragmentStyle1.setOnClickListener {
             val intent = Intent(this, FragmentStyle1Activity::class.java)
             startActivity(intent)
