@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/viewComponentActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/viewComponentActivity"
     tools:context=".activities.ViewComponentActivity">
 
     <TextView
@@ -153,6 +153,34 @@
         app:layout_constraintStart_toEndOf="@+id/editDate"
         app:layout_constraintTop_toBottomOf="@+id/editPhone"
         app:srcCompat="@android:drawable/ic_menu_my_calendar" />
+
+    <RadioGroup
+        android:id="@+id/radGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSpinReAssign">
+
+        <RadioButton
+            android:id="@+id/radioM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="Male" />
+
+        <RadioButton
+            android:id="@+id/radioF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            android:checked="false"/>
+
+    </RadioGroup>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

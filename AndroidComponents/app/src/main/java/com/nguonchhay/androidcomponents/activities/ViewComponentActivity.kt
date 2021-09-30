@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.RadioButton
 import android.widget.Toast
 import com.nguonchhay.androidcomponents.R
 import com.nguonchhay.androidcomponents.databinding.ActivityViewComponentBinding
@@ -38,6 +39,12 @@ class ViewComponentActivity : AppCompatActivity() {
             allText += binding.editDate.text.toString()
             allText += binding.editNumberSigned.text.toString()
             allText += binding.spinDay.selectedItem.toString()
+
+            val selectedRadioId = binding.radGender.checkedRadioButtonId
+            if (selectedRadioId > -1) {
+                val radio = findViewById<RadioButton>(selectedRadioId)
+                allText += radio.text
+            }
 
             Toast.makeText(this, allText, Toast.LENGTH_LONG).show()
         }
