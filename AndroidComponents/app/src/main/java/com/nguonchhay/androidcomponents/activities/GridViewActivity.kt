@@ -27,5 +27,9 @@ class GridViewActivity : AppCompatActivity() {
         val gridViewAdapter = GridViewAdapter(gridViewData, this)
         binding.gridView.adapter = gridViewAdapter
 
+        binding.imgGridViewBack.setOnClickListener {
+            finish()
+        }
+
     }
 }
