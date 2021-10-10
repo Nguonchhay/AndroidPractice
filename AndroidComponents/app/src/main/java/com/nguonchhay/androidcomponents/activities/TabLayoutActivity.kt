@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.google.android.material.tabs.TabLayout
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import com.nguonchhay.androidcomponents.adapters.TabFragmentAdapter
 import com.nguonchhay.androidcomponents.databinding.ActivityTabLayoutBinding
@@ -29,6 +29,8 @@ class TabLayoutActivity : AppCompatActivity() {
         fragments.add(TabFirstFragment())
         fragments.add(TabSecondFragment())
         fragments.add(TabThirdFragment())
+        fragments.add(TabFirstFragment())
+        fragments.add(TabFirstFragment())
         val tabAdapter = TabFragmentAdapter(fragments, supportFragmentManager, lifecycle)
         binding.viewPagerTabFragment.adapter = tabAdapter
 
@@ -36,19 +38,11 @@ class TabLayoutActivity : AppCompatActivity() {
             tab.text = "Fragment ${position + 1}"
         }.attach()
 
-//        binding.tabLayoutActivity.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
-//            override fun onTabSelected(tab: TabLayout.Tab?) {
-//                TODO("Not yet implemented")
-//            }
-//
-//            override fun onTabUnselected(tab: TabLayout.Tab?) {
-//                TODO("Not yet implemented")
-//            }
-//
-//            override fun onTabReselected(tab: TabLayout.Tab?) {
-//                TODO("Not yet implemented")
-//            }
-//
-//        })
+        binding.viewPagerTabFragment.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                Toast.makeText(this@TabLayoutActivity, "Selected position: $position",
+                    Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }
