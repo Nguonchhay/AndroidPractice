@@ -9,9 +9,7 @@ import com.nguonchhay.androidcomponents.R
 
 class ViewPager2Adapter(val images: List<Int>): RecyclerView.Adapter<ViewPager2Adapter.ViewPagerHolder>() {
 
-    inner class ViewPagerHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-
-    }
+    inner class ViewPagerHolder(itemView: View): RecyclerView.ViewHolder(itemView) {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewPagerHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_view_pager2, parent, false)

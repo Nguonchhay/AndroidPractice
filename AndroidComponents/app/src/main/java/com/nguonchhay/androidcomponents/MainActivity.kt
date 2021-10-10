@@ -55,6 +55,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.btnTabLayout.setOnClickListener {
+            val intent = Intent(this, TabLayoutActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.btnBottomNav.setOnClickListener {
             val intent = Intent(this, BottomNavActivity::class.java)
             startActivity(intent)
