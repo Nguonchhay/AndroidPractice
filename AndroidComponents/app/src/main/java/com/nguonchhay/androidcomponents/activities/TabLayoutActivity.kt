@@ -38,6 +38,13 @@ class TabLayoutActivity : AppCompatActivity() {
             tab.text = "Fragment ${position + 1}"
         }.attach()
 
+        /**
+         * Change direction
+         *
+         * doppelgangerViewPager.layoutDirection = ViewPager2.LAYOUT_DIRECTION_RTL
+         * tabLayout.layoutDirection = View.LAYOUT_DIRECTION_RTL
+         */
+
         binding.viewPagerTabFragment.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 Toast.makeText(this@TabLayoutActivity, "Selected position: $position",
