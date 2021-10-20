@@ -19,17 +19,27 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val homeFragment = HomeFragment()
-        val attractionFragment = AttractionFragment()
-        val settingFragment = SettingFragment()
+        val homeFragment = HomeFragment(this)
+        val attractionFragment = AttractionFragment(this)
+        val settingFragment = SettingFragment(this)
 
         setFragment(homeFragment)
+        setBarTitle("Attraction App")
 
         binding.bottomNavMain.setOnItemSelectedListener {
             when(it.itemId) {
-                R.id.menuHome -> setFragment(homeFragment)
-                R.id.menuAttraction -> setFragment(attractionFragment)
-                R.id.menuSetting -> setFragment(settingFragment)
+                R.id.menuHome -> {
+                    setFragment(homeFragment)
+                    setBarTitle("Attraction App")
+                }
+                R.id.menuAttraction -> {
+                    setFragment(attractionFragment)
+                    setBarTitle(it.title.toString())
+                }
+                R.id.menuSetting -> {
+                    setFragment(settingFragment)
+                    setBarTitle(it.title.toString())
+                }
             }
             true
         }
@@ -40,5 +50,9 @@ class MainActivity : AppCompatActivity() {
             replace(R.id.fragmentContainerMain, fragment)
             commit()
         }
+    }
+
+    private fun setBarTitle(text: String) {
+        binding.toolbarTitleMain.text = text
     }
 }
