@@ -11,11 +11,12 @@ import android.widget.TextView
 import com.nguonchhay.attraction.R
 import com.nguonchhay.attraction.databases.data.SettingItem
 
-class SettingListAdapter(val appContext: Activity, val listData: MutableList<SettingItem>)
-    : ArrayAdapter<SettingItem>(appContext, R.layout.list_setting_items) {
+class SettingListAdapter(
+    val context: Activity, val listData: MutableList<SettingItem>
+) : ArrayAdapter<SettingItem>(context, R.layout.list_setting_items, listData) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val view = LayoutInflater.from(appContext).inflate(R.layout.list_setting_items, null)
+        val view = LayoutInflater.from(context).inflate(R.layout.list_setting_items, null)
 
         val settingItem = listData.get(position)
         val imageView = view.findViewById<ImageView>(R.id.settingImage)
