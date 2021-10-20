@@ -40,6 +40,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.btnListView.setOnClickListener {
+            val intent = Intent(this, ListviewActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.btnRecycleviewWithCardView.setOnClickListener {
             val intent = Intent(this, RecyclerViewWithCardViewActivity::class.java)
             startActivity(intent)
