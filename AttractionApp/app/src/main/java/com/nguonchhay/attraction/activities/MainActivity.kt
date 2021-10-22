@@ -3,13 +3,16 @@ package com.nguonchhay.attraction.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.compose.setContent
 import androidx.fragment.app.Fragment
 import com.nguonchhay.attraction.R
 import com.nguonchhay.attraction.databinding.ActivityMainBinding
 import com.nguonchhay.attraction.fragments.AttractionFragment
 import com.nguonchhay.attraction.fragments.HomeFragment
 import com.nguonchhay.attraction.fragments.SettingFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
@@ -18,6 +21,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setContent {
+            AttractionAppTheme
+        }
+
 
         val homeFragment = HomeFragment(this)
         val attractionFragment = AttractionFragment(this)

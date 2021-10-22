@@ -1,0 +1,22 @@
+{
+  "attractions": [
+    {
+      "id": 1,
+      "image": "https://i.picsum.photos/id/735/200/200.jpg?hmac=XML4Wv2mXSMlQw0EtA5w4gbgWnEexc-t-ulwq8lAu1o",
+      "title": "Phnom Penh",
+      "description": "You can specify how many words should be generated right next to the word 'lorem'. For example, lorem5 will generate a 5-words dummy text."
+    },
+    {
+      "id": 2,
+      "image": "https://i.picsum.photos/id/101/200/200.jpg?hmac=8aiHS9K78DvBexQ7ZROLuLizDR22o8CcjRMUhHbZU6g",
+      "title": "Kampot",
+      "description": "You can specify how many words should be generated right next to the word 'lorem'. For example, lorem5 will generate a 5-words dummy text."
+    },
+    {
+      "id": 3,
+      "image": "https://i.picsum.photos/id/1059/200/200.jpg?hmac=2w4ZTAuYGsSUL-ur3iVQO04H8398XxIaeLEGVBNRSLU",
+      "title": "Kandal",
+      "description": "You can specify how many words should be generated right next to the word 'lorem'. For example, lorem5 will generate a 5-words dummy text."
+    }
+  ]
+}
