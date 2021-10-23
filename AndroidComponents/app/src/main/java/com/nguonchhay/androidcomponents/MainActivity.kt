@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.nguonchhay.androidcomponents.activities.*
 import com.nguonchhay.androidcomponents.databinding.ActivityMainBinding
+import com.nguonchhay.androidcomponents.mvvm_minion.view.MinionActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -73,6 +74,11 @@ class MainActivity : AppCompatActivity() {
         binding.btnActivityForResult.setOnClickListener {
             val intent = Intent(this, StartForResultActivity::class.java)
             intent.putExtra("msg", "Cool it works")
+            startActivity(intent)
+        }
+
+        binding.btnMVVMMinion.setOnClickListener {
+            val intent = Intent(this, MinionActivity::class.java)
             startActivity(intent)
         }
     }
