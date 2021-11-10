@@ -3,14 +3,27 @@ package com.nguonchhay.attraction.networks
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object ApiUtil {
+//object ApiUtil {
+//
+//    private const val BASE_URL = "https://my-json-server.typicode.com/"
+//
+//    fun  getInstance(): Retrofit {
+//        return Retrofit.Builder()
+//            .baseUrl(BASE_URL)
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build()
+//    }
+//}
 
-    private const val BASE_URL = "https://my-json-server.typicode.com/"
+class ApiUtil {
+    companion object {
+        private const val BASE_URL = "https://my-json-server.typicode.com/"
 
-    fun  getInstance(): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+        fun  getInstance(): Retrofit {
+            return Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+        }
     }
 }

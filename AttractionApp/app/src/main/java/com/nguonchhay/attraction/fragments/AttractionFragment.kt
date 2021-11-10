@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,7 +14,6 @@ import com.nguonchhay.attraction.adapters.AttractionListAdapter
 import com.nguonchhay.attraction.databases.data.AttractionItem
 import com.nguonchhay.attraction.networks.ApiAttractionInterface
 import com.nguonchhay.attraction.networks.ApiUtil
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class AttractionFragment(val context: Activity) : Fragment(R.layout.fragment_attraction) {
@@ -26,14 +26,18 @@ class AttractionFragment(val context: Activity) : Fragment(R.layout.fragment_att
             try {
                 val result = attractionApi.list()
                 val attractions = arrayListOf<AttractionItem>()
-                result.body()?.iterator()?.forEach {
-                    attractions.add(it)
-                }
+                if (result.isSuccessful)  {
+                    result.body()?.iterator()?.forEach {
+                        attractions.add(it)
+                    }
 
-                val adapter = AttractionListAdapter(context, attractions)
-                val recycleView = view.findViewById<RecyclerView>(R.id.recycleAttraction)
-                recycleView.adapter = adapter
-                recycleView.layoutManager = LinearLayoutManager(context)
+                    val adapter = AttractionListAdapter(context, attractions)
+                    val recycleView = view.findViewById<RecyclerView>(R.id.recycleAttraction)
+                    recycleView.adapter = adapter
+                    recycleView.layoutManager = LinearLayoutManager(context)
+                } else {
+                    Toast.makeText(context, "Something went wrong!", Toast.LENGTH_SHORT).show()
+                }
             } catch (e: Exception) {
                 Log.d("attractions", "ERROR: ${e.toString()}")
             }

@@ -1,6 +1,7 @@
 package com.nguonchhay.attraction.adapters
 
 import android.app.Activity
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.nguonchhay.attraction.R
+import com.nguonchhay.attraction.activities.AttractionActivity
 import com.nguonchhay.attraction.databases.data.AttractionItem
 
 class AttractionListAdapter(
@@ -35,9 +37,11 @@ class AttractionListAdapter(
 
         val descriptionView: TextView = holder.itemView.findViewById(R.id.attractionDesc)
         descriptionView.text = attraction.description
-        
+
         holder.itemView.setOnClickListener {
-            Toast.makeText(context, "${attraction.title} is clicked!", Toast.LENGTH_SHORT).show()
+            val intent = Intent(context, AttractionActivity::class.java)
+            intent.putExtra("ATTRACTION_ID", attraction.id)
+            context.startActivity(intent)
         }
     }
 
