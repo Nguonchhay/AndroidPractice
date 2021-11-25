@@ -31,5 +31,13 @@ class SettingFragment(val context: Activity) : Fragment(R.layout.fragment_settin
         val listView: ListView = view.findViewById(R.id.listSettingFragment)
         listView.isClickable = true
         listView.adapter = adapter
+        listView.setOnItemClickListener { adapterView, view, i, l ->
+            if (listData[i].title == "Logout") {
+                val preference = SharedPreferenceUtil(context)
+                preference.storeItem("ACCESS_TOKEN", "")
+                val intent = Intent(context, LoginActivity::class.java)
+                startActivity(intent)
+            }
+        }
     }
 }
