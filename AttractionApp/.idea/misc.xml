@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/tnguonchhay/dev/android-practice/AttractionApp/app/src/main/res/layout/dialog_loading.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_attraction.xml" value="0.21331521739130435" />
         <entry key="app/src/main/res/layout/item_attraction.xml" value="0.15070921985815602" />
       </map>

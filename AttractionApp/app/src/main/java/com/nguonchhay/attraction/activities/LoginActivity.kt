@@ -7,7 +7,13 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import com.nguonchhay.attraction.R
+import com.nguonchhay.attraction.databases.data.UserData
+import com.nguonchhay.attraction.dialogs.LoadingDialog
+import com.nguonchhay.attraction.networks.ApiUserInterface
+import com.nguonchhay.attraction.networks.ApiUtil
+import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
 
@@ -25,11 +31,28 @@ class LoginActivity : AppCompatActivity() {
             val passwordValue = passwordField.text.toString()
 
             if (emailValue != "" && passwordValue != "") {
-                // Call API to authenticate
+                LoadingDialog.displayLoadingWithText(this, "Loading")
 
-                // Navigate to Main screen
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
+                // Call API to authenticate
+                lifecycleScope.launch {
+                    val userApi = ApiUtil.getInstance().create(ApiUserInterface::class.java)
+                    val result = userApi.login(UserData(
+                        email = emailValue,
+                        password = passwordValue
+                    ))
+
+                    if (result.isSuccessful) {
+                        // Navigate to Main screen
+                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        Toast.makeText(this@LoginActivity, "Invalid credentials", Toast.LENGTH_SHORT).show()
+                    }
+
+                    LoadingDialog.hideLoading()
+                }
+
+
             } else {
                 // Show error
                 Toast.makeText(this, "Fields are required!", Toast.LENGTH_LONG).show()
