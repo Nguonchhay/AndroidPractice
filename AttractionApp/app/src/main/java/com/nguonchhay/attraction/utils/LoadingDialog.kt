@@ -1,4 +1,4 @@
-package com.nguonchhay.attraction.dialogs
+package com.nguonchhay.attraction.utils
 
 import android.app.Dialog
 import android.content.Context

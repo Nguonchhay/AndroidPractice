@@ -10,9 +10,10 @@ import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.nguonchhay.attraction.R
 import com.nguonchhay.attraction.databases.data.UserData
-import com.nguonchhay.attraction.dialogs.LoadingDialog
+import com.nguonchhay.attraction.utils.LoadingDialog
 import com.nguonchhay.attraction.networks.ApiUserInterface
 import com.nguonchhay.attraction.networks.ApiUtil
+import com.nguonchhay.attraction.utils.SharedPreferenceUtil
 import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
@@ -20,6 +21,14 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        // Check access_token
+        val preference = SharedPreferenceUtil(this)
+        if (preference.getItem("ACCESS_TOKEN") != "") {
+            // Navigate to Main screen
+            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+            startActivity(intent)
+        }
 
         val btnLogin: Button = findViewById(R.id.btnLogin)
         btnLogin.setOnClickListener {
@@ -42,6 +51,10 @@ class LoginActivity : AppCompatActivity() {
                     ))
 
                     if (result.isSuccessful) {
+                        // Store user info
+                        val preference = SharedPreferenceUtil(this@LoginActivity)
+                        preference.storeItem("ACCESS_TOKEN", "Pass your access_token key here")
+
                         // Navigate to Main screen
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
                         startActivity(intent)
