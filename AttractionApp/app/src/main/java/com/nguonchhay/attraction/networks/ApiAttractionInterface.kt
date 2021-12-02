@@ -10,7 +10,7 @@ class Attractions: ArrayList<AttractionItem>()
 
 interface ApiAttractionInterface {
 
-    @GET("/Nguonchhay/attraction-fake-api/attractions")
+    @GET("/api/attractions")
     @Headers("Accept:application/json", "Content-Type:application/json")
     suspend fun list(): Response<Attractions>
 
