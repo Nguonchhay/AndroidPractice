@@ -105,6 +105,13 @@
             android:layout_marginStart="10dp"
             android:text="MVVM Minion"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnMVVMStateFlow"
+            android:layout_marginStart="10dp"
+            android:text="MVVM StateFlow"/>
+
     </LinearLayout>
 
 </RelativeLayout>

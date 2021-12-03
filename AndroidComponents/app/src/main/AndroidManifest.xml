@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidComponents">
         <activity
+            android:name=".mvvm_minion.view.CalculatorActivity"
+            android:exported="false" />
+        <activity
             android:name=".mvvm_minion.view.MinionActivity"
             android:exported="false" />
         <activity
