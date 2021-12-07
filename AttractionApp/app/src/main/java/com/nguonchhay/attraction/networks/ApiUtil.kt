@@ -18,6 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ApiUtil {
     companion object {
         //private const val BASE_URL = "https://my-json-server.typicode.com/"
+        // https://beeceptor.com
         private const val BASE_URL = "https://nguonchhay.free.beeceptor.com/"
 
         fun  getInstance(): Retrofit {
