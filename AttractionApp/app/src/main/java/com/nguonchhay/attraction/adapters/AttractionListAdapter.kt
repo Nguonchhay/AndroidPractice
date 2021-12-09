@@ -7,16 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.nguonchhay.attraction.R
 import com.nguonchhay.attraction.activities.AttractionActivity
-import com.nguonchhay.attraction.databases.data.AttractionItem
+import com.nguonchhay.attraction.databases.entities.AttractionEntity
 
 class AttractionListAdapter(
     private val context: Activity,
-    private val listData: MutableList<AttractionItem>
+    private val listData: List<AttractionEntity>
 ) : RecyclerView.Adapter<AttractionListAdapter.AttractionViewHolder>() {
 
     inner class AttractionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
