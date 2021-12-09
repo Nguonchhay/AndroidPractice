@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InAndroid2021">
         <activity
+            android:name=".activities.AttractionEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AdminAttractionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.admins.AttractionsAdminActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.AttractionActivity"
             android:exported="false" />
         <activity

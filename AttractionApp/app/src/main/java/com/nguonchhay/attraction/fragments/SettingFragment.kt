@@ -1,17 +1,14 @@
 package com.nguonchhay.attraction.fragments
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
-import android.widget.ArrayAdapter
 import android.widget.ListView
-import android.widget.Toast
 import com.nguonchhay.attraction.R
+import com.nguonchhay.attraction.activities.AdminAttractionActivity
 import com.nguonchhay.attraction.activities.LoginActivity
-import com.nguonchhay.attraction.activities.MainActivity
 import com.nguonchhay.attraction.adapters.SettingListAdapter
 import com.nguonchhay.attraction.databases.data.SettingItem
 import com.nguonchhay.attraction.utils.SharedPreferenceUtil
@@ -37,6 +34,8 @@ class SettingFragment(val context: Activity) : Fragment(R.layout.fragment_settin
                 preference.storeItem("ACCESS_TOKEN", "")
                 val intent = Intent(context, LoginActivity::class.java)
                 startActivity(intent)
+            } else if (listData[i].title == "Attraction")  {
+                startActivity(Intent(context, AdminAttractionActivity::class.java))
             }
         }
     }
