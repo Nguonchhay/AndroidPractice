@@ -3,13 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/tnguonchhay/dev/android-practice/AttractionApp/app/src/main/res/layout/activity_attraction_edit.xml" value="0.14221014492753623" />
         <entry key="..\:/Users/tnguonchhay/dev/android-practice/AttractionApp/app/src/main/res/layout/dialog_loading.xml" value="0.1" />
         <entry key="..\:/Users/tnguonchhay/dev/android-practice/AttractionApp/app/src/main/res/layout/fragment_home.xml" value="0.18297101449275363" />
         <entry key="..\:/Users/tnguonchhay/dev/android-practice/AttractionApp/app/src/main/res/layout/fragment_setting.xml" value="0.18297101449275363" />
         <entry key="..\:/Users/tnguonchhay/dev/android-practice/AttractionApp/app/src/main/res/layout/list_setting_items.xml" value="0.18297101449275363" />
         <entry key="..\:/Users/tnguonchhay/dev/android-practice/AttractionApp/app/src/main/res/menu/menu_bottom_nav.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/activity_admin_attraction.xml" value="0.24682971014492755" />
         <entry key="app/src/main/res/layout/activity_attraction.xml" value="0.21331521739130435" />
+        <entry key="app/src/main/res/layout/activity_attractions_admin.xml" value="0.24682971014492755" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/fragment_attraction.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/item_attraction.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/item_attraction_admin.xml" value="0.24682971014492755" />
+        <entry key="app/src/main/res/menu/menu_edit_delete_options.xml" value="0.3098958333333333" />
       </map>
     </option>
   </component>

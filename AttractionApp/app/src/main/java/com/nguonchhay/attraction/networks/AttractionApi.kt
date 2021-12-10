@@ -7,12 +7,15 @@ import io.ktor.client.features.json.*
 import io.ktor.client.features.json.serializer.*
 import io.ktor.client.features.logging.*
 import io.ktor.client.request.*
+import io.ktor.client.statement.*
 
 interface AttractionApi {
 
     suspend fun list(): List<AttractionEntity>
 
     suspend fun show(id: Int): AttractionEntity?
+
+    suspend fun edit(id: Int, attraction: AttractionEntity): AttractionEntity
 
     companion object {
         fun create(): AttractionApiImpl {

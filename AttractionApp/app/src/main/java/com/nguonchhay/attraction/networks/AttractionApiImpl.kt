@@ -68,4 +68,40 @@ class AttractionApiImpl(
             null
         }
     }
+
+    override suspend fun edit(id: Int, attraction: AttractionEntity): AttractionEntity {
+        var requestId = id
+        requestId = 1
+        return try {
+            client.request<AttractionEntity> {
+                url {
+                    protocol = URLProtocol.HTTPS
+                    host = "nguonchhay.free.beeceptor.com"
+                    path("api/attractions", requestId.toString())
+                }
+                headers {
+                    append("Content-Type", "application/json")
+                }
+                //contentType(ContentType.Application.Json)
+                method = HttpMethod.Put
+                body = attraction
+            }
+        } catch(e: RedirectResponseException) {
+            // 3.xx response
+            Log.d("AttractionApiImpl" ,"Error 3.xx: ${e.response.status.description}")
+            attraction
+        } catch(e: ClientRequestException) {
+            // 4.xx response
+            Log.d("AttractionApiImpl" ,"Error 4.xx: ${e.response.status.description}")
+            attraction
+        } catch(e: ServerResponseException) {
+            // 5.xx response
+            Log.d("AttractionApiImpl" ,"Error 5.xx: ${e.response.status.description}")
+            attraction
+        } catch(e: Exception) {
+            // 5.xx response
+            Log.d("AttractionApiImpl" ,"Error: ${e.message}")
+            attraction
+        }
+    }
 }
