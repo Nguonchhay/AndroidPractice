@@ -1,14 +1,11 @@
 package com.nguonchhay.attractioncompose.ui.activities
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardOptions
@@ -21,37 +18,61 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.nguonchhay.attractioncompose.R
+import com.nguonchhay.attractioncompose.entities.UserEntity
 import com.nguonchhay.attractioncompose.ui.activities.ui.theme.AttractionComposeTheme
+import com.nguonchhay.attractioncompose.ui.viewmodels.LoginViewModel
+import kotlinx.coroutines.flow.collectLatest
 
 class LoginActivity : ComponentActivity() {
+
+    private lateinit var loginViewModel: LoginViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        loginViewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         setContent {
             AttractionComposeTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    LoginScreen()
+                    LoginScreen(loginViewModel)
+                }
+            }
+        }
+
+        lifecycleScope.launchWhenStarted {
+            loginViewModel.uiState.collectLatest {
+                if (it.user != null) {
+                    if (it.user.id != null) {
+                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                    }  else {
+                        Toast.makeText(this@LoginActivity, "Login failed", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         }
     }
 }
 
-@Composable
-fun LoginScreen() {
-    val context = LocalContext.current
+fun loginAction(loginViewModel: LoginViewModel, user: UserEntity) {
+    loginViewModel.login(user)
+}
 
+@Composable
+fun LoginScreen(loginViewModel: LoginViewModel) {
+    val context = LocalContext.current
     // State
-    var emailState = remember { mutableStateOf(TextFieldValue()) }
-    var passwordState = remember { mutableStateOf(TextFieldValue()) }
+    val emailState = remember { mutableStateOf(TextFieldValue()) }
+    val passwordState = remember { mutableStateOf(TextFieldValue()) }
 
     // Layout
     Column(
@@ -98,11 +119,17 @@ fun LoginScreen() {
             ),
             onClick = {
                 if (emailState.value.text == "" || passwordState.value.text == "") {
-                    Toast.makeText(context, "Field are require!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Fields are required!", Toast.LENGTH_SHORT).show()
                 } else {
-                    context.startActivity(Intent(context, MainActivity::class.java))
+                    loginAction(
+                        loginViewModel,
+                        UserEntity(
+                            email = emailState.value.text,
+                            password = passwordState.value.text
+                        )
+                    )
                 }
-            },
+            }
         ) {
             Text(
                 text = "Login"
@@ -112,7 +139,7 @@ fun LoginScreen() {
 
         Text(
             text = "Forgot Password",
-            color = Color.Cyan,
+            color = colorResource(id = R.color.purple_200),
             modifier = Modifier.padding(30.dp)
         )
         Spacer(modifier = Modifier.padding(4.dp))
@@ -128,6 +155,6 @@ fun LoginScreen() {
 @Composable
 fun DefaultPreview2() {
     AttractionComposeTheme {
-        LoginScreen()
+        //LoginScreen()
     }
 }
