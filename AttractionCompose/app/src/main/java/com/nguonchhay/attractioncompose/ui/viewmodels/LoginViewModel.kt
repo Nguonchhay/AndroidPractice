@@ -19,19 +19,19 @@ class LoginViewModel : ViewModel() {
             Log.d("LoginViewModel", "Before API")
             // Call API
 
-//            Log.d("LoginViewModel", "Success API")
-//            _uiState.value = LoginState(user = UserEntity(
-//                id = "1",
-//                email = user.email,
-//                password = "",
-//                name = "Admin1"
-//            ), isLoading = false)
-
-            Log.d("LoginViewModel", "Failed API")
+            Log.d("LoginViewModel", "Success API")
             _uiState.value = LoginState(user = UserEntity(
+                id = "1",
                 email = user.email,
-                password = user.password
+                password = "",
+                name = "Admin1"
             ), isLoading = false)
+
+//            Log.d("LoginViewModel", "Failed API")
+//            _uiState.value = LoginState(user = UserEntity(
+//                email = user.email,
+//                password = user.password
+//            ), isLoading = false)
         }
     }
 }
