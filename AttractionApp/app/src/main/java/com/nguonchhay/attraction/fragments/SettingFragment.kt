@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.ListView
 import com.nguonchhay.attraction.R
 import com.nguonchhay.attraction.activities.AdminAttractionActivity
+import com.nguonchhay.attraction.activities.AdminUserActivity
 import com.nguonchhay.attraction.activities.LoginActivity
 import com.nguonchhay.attraction.adapters.SettingListAdapter
 import com.nguonchhay.attraction.databases.data.SettingItem
@@ -22,6 +23,7 @@ class SettingFragment(val context: Activity) : Fragment(R.layout.fragment_settin
             SettingItem(R.drawable.icon_home, "Home"),
             SettingItem(R.drawable.icon_attraction, "Attraction"),
             SettingItem(R.drawable.icon_setting, "Setting"),
+            SettingItem(R.drawable.icon_users, "Users"),
             SettingItem(R.drawable.icon_logout, "Logout")
         )
         val adapter = SettingListAdapter(context, listData)
@@ -36,6 +38,8 @@ class SettingFragment(val context: Activity) : Fragment(R.layout.fragment_settin
                 startActivity(intent)
             } else if (listData[i].title == "Attraction")  {
                 startActivity(Intent(context, AdminAttractionActivity::class.java))
+            } else if (listData[i].title == "Users")  {
+                startActivity(Intent(context, AdminUserActivity::class.java))
             }
         }
     }
