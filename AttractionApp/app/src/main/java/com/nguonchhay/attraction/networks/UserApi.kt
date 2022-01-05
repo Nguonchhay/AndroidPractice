@@ -9,6 +9,7 @@ import io.ktor.client.features.logging.*
 
 interface UserApi {
     suspend fun login(user: UserEntity): UserEntity
+    suspend fun list(): List<UserEntity>
 
     companion object {
         fun create(): UserApiImpl {
@@ -19,7 +20,10 @@ interface UserApi {
                     }
 
                     install(JsonFeature)  {
-                        serializer = KotlinxSerializer()
+                        serializer = KotlinxSerializer(kotlinx.serialization.json.Json {
+                            prettyPrint = true
+                            isLenient = true
+                        })
                     }
                 }
             )

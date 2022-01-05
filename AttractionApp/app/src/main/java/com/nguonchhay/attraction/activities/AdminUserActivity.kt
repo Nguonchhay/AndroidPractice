@@ -1,23 +1,23 @@
 package com.nguonchhay.attraction.activities
 
-import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.nguonchhay.attraction.R
+import com.nguonchhay.attraction.adapters.AdminUserListAdapter
 import com.nguonchhay.attraction.databinding.ActivityAdminUserBinding
 import com.nguonchhay.attraction.rooms.AttractionAppDatabase
+import com.nguonchhay.attraction.rooms.UserEntityInterface
 import com.nguonchhay.attraction.rooms.entities.UserEntity
+import com.nguonchhay.attraction.viewmodels.AdminUsersViewModel
+import kotlinx.coroutines.flow.collectLatest
 
 class AdminUserActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityAdminUserBinding
-    lateinit var dbInstance: AttractionAppDatabase
+    private lateinit var binding: ActivityAdminUserBinding
+    private lateinit var dbInstance: AttractionAppDatabase
+    private lateinit var adminUserViewModel: AdminUsersViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,10 +25,9 @@ class AdminUserActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         dbInstance = AttractionAppDatabase.getInstance(applicationContext)
-
+        adminUserViewModel = ViewModelProvider(this)[AdminUsersViewModel::class.java]
 
         binding.rvAdminUsers.layoutManager = LinearLayoutManager(this)
-        refreshList()
 
         binding.btnAdminUserAdd.setOnClickListener {
             dbInstance.userDao.store(UserEntity(
@@ -37,41 +36,28 @@ class AdminUserActivity : AppCompatActivity() {
                 password = "1234567890",
                 name="User 1"
             ))
-            refreshList()
+            //refreshList()
         }
+
+        subscribeToObservables()
     }
 
-    fun refreshList() {
-        val users = dbInstance.userDao.list()
+    private fun refreshList(users: List<com.nguonchhay.attraction.databases.entities.UserEntity>) {
         binding.rvAdminUsers.adapter = users?.let {
-            AdminUserListAdapter(this, it)
+            AdminUserListAdapter(this@AdminUserActivity, it)
         }
     }
-}
 
-class AdminUserListAdapter(
-    private val context: Activity,
-    private val listData: List<UserEntity>
-) : RecyclerView.Adapter<AdminUserListAdapter.UserViewHolder>() {
-
-    inner class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_admin_user, parent, false)
-        return UserViewHolder(view)
-    }
-
-    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        val userData = listData[position]
-
-        val nameView: TextView = holder.itemView.findViewById(R.id.adminUserName)
-        nameView.text = userData.name
-
-        val emailView: TextView = holder.itemView.findViewById(R.id.adminUserEmail)
-        emailView.text = userData.email
-    }
-
-    override fun getItemCount(): Int {
-        return listData.size
+    private fun subscribeToObservables() {
+        lifecycleScope.launchWhenStarted {
+            adminUserViewModel.uiState.collectLatest {
+                val userData = mutableListOf<com.nguonchhay.attraction.databases.entities.UserEntity>()
+                it.forEach { data ->
+                    val item = data as com.nguonchhay.attraction.databases.entities.UserEntity
+                    userData.add(item)
+                }
+                refreshList(userData)
+            }
+        }
     }
 }

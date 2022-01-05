@@ -3,6 +3,7 @@ package com.nguonchhay.attraction.rooms.entities
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.nguonchhay.attraction.rooms.UserEntityInterface
 import kotlinx.serialization.Serializable
 
 @Entity(tableName = "users")
@@ -19,4 +20,4 @@ class UserEntity(
 
     @ColumnInfo(name = "name")
     val name: String ? = null
-)
+): UserEntityInterface
