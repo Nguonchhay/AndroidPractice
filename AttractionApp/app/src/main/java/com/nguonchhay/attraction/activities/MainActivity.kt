@@ -1,5 +1,6 @@
 package com.nguonchhay.attraction.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -35,6 +36,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.menuAttraction -> {
                     setFragment(attractionFragment)
                     setBarTitle(it.title.toString())
+                }
+                R.id.menuMap -> {
+                    startActivity(Intent(this@MainActivity, MapsActivity::class.java))
                 }
                 R.id.menuSetting -> {
                     setFragment(settingFragment)
