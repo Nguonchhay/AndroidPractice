@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "452202759602",
+    "project_id": "attractionapp-54336",
+    "storage_bucket": "attractionapp-54336.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:452202759602:android:2853052cd64bc1753690ab",
+        "android_client_info": {
+          "package_name": "com.nguonchhay.attraction"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "452202759602-jvec38dqrbjqr38v5pclqfusull3crkq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiHk75RMfLFlzSsYewe65q2--L8FuzVEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "452202759602-jvec38dqrbjqr38v5pclqfusull3crkq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,12 +3,15 @@ package com.nguonchhay.attraction.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
+import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.google.firebase.auth.FirebaseAuth
 import com.nguonchhay.attraction.R
 import com.nguonchhay.attraction.databases.data.UserData
 import com.nguonchhay.attraction.utils.LoadingDialog
@@ -22,18 +25,29 @@ import kotlinx.coroutines.launch
 class LoginActivity : AppCompatActivity() {
 
     lateinit var loginViewModel: LoginViewModel
+    lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        // Check access_token
-        val preference = SharedPreferenceUtil(this)
-        if (preference.getItem("ACCESS_TOKEN") != "") {
+        // Check auth user instead of local access_token
+        firebaseAuth = FirebaseAuth.getInstance()
+        val user = firebaseAuth.currentUser
+        if (user != null) {
             // Navigate to Main screen
             val intent = Intent(this@LoginActivity, MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
+
+//        // Check access_token
+//        val preference = SharedPreferenceUtil(this)
+//        if (preference.getItem("ACCESS_TOKEN") != "") {
+//            // Navigate to Main screen
+//            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+//            startActivity(intent)
+//        }
 
         loginViewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         lifecycleScope.launchWhenStarted {
@@ -62,19 +76,44 @@ class LoginActivity : AppCompatActivity() {
             val passwordField: EditText = findViewById(R.id.editPassword)
             val passwordValue = passwordField.text.toString()
 
-            if (emailValue != "" && passwordValue != "") {
-                LoadingDialog.displayLoadingWithText(this, "Loading")
-
-                loginViewModel.login(emailValue, passwordValue)
-            } else {
-                // Show error
-                Toast.makeText(this, "Fields are required!", Toast.LENGTH_LONG).show()
-            }
+//            if (emailValue != "" && passwordValue != "") {
+//                LoadingDialog.displayLoadingWithText(this, "Loading")
+//
+//                loginViewModel.login(emailValue, passwordValue)
+//            } else {
+//                // Show error
+//                Toast.makeText(this, "Fields are required!", Toast.LENGTH_LONG).show()
+//            }
+            validateData(emailValue, passwordValue)
         }
 
         val textRegisterField: TextView = findViewById(R.id.textRegister)
         textRegisterField.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
+    }
+
+    fun validateData(emailValue: String, passwordValue: String) {
+        if (!Patterns.EMAIL_ADDRESS.matcher(emailValue).matches()) {
+            Toast.makeText(this, "Invalid Email format", Toast.LENGTH_LONG).show()
+        } else if (TextUtils.isEmpty(passwordValue)) {
+            Toast.makeText(this, "Please input password", Toast.LENGTH_LONG).show()
+        } else {
+            firebaseLogin(emailValue, passwordValue)
+        }
+    }
+
+    fun firebaseLogin(emailVaue: String, passwordValue: String) {
+        firebaseAuth.signInWithEmailAndPassword(emailVaue, passwordValue)
+            .addOnSuccessListener {
+                Toast.makeText(this, "Logged in as ${emailVaue}", Toast.LENGTH_LONG).show()
+                // Navigate to Main screen
+                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "login failed due to ${e.message}", Toast.LENGTH_LONG).show()
+            }
     }
 }
