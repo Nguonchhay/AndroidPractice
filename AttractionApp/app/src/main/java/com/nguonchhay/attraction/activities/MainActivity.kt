@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.google.firebase.auth.FirebaseAuth
 import com.nguonchhay.attraction.R
 import com.nguonchhay.attraction.databinding.ActivityMainBinding
 import com.nguonchhay.attraction.fragments.AttractionFragment
@@ -14,6 +15,7 @@ import com.nguonchhay.attraction.fragments.SettingFragment
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
+    lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

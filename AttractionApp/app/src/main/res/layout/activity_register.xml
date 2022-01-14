@@ -39,7 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/editFullName" />
 
     <EditText
         android:id="@+id/editPassword"
@@ -66,7 +66,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editBirthDate" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editFullName"
         android:layout_width="306dp"
         android:layout_height="53dp"
         android:layout_marginTop="20dp"

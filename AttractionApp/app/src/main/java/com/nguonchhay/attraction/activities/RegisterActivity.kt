@@ -1,14 +1,25 @@
 package com.nguonchhay.attraction.activities
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.RadioButton
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
+import com.nguonchhay.attraction.databases.entities.UserEntity
 import com.nguonchhay.attraction.databinding.ActivityRegisterBinding
 import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityRegisterBinding
+    lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var database: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,6 +27,8 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val calendar = Calendar.getInstance()
+        firebaseAuth = FirebaseAuth.getInstance()
+        database = Firebase.database.reference
 
         val birthDateDialogListener = DatePickerDialog.OnDateSetListener {
                 view, year, month, dayOfMonth ->
@@ -34,5 +47,39 @@ class RegisterActivity : AppCompatActivity() {
             // Call DatePicker
             birthDateDialog.show()
         }
+
+        binding.btnRegister.setOnClickListener {
+            validateData()
+        }
+    }
+
+    fun validateData() {
+        val email = binding.editEmail.text.toString()
+        val password = binding.editPassword.text.toString()
+
+        firebaseAuth.createUserWithEmailAndPassword(email, password)
+            .addOnSuccessListener {
+
+                // Save more user data
+                val name = binding.editFullName.text.toString()
+//                val birthDate = binding.editBirthDate.text.toString()
+//
+//                val selectedRadioInt = binding.radGroupGener.checkedRadioButtonId
+//                val radGender: RadioButton = findViewById(selectedRadioInt)
+//                val gender = radGender.text.toString()
+
+                val profileUpdates = UserProfileChangeRequest.Builder()
+                    .setDisplayName(name)
+                    .build()
+                firebaseAuth.currentUser!!.updateProfile(profileUpdates)
+
+                Toast.makeText(this, "Registered as $email", Toast.LENGTH_LONG).show()
+                // Navigate to Main screen
+                startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
+                finish()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this@RegisterActivity, "Sign up failed due to ${e.message}", Toast.LENGTH_LONG).show()
+            }
     }
 }

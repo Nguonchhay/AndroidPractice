@@ -8,5 +8,7 @@ data class UserEntity(
     val id: Int? = null,
     val email: String,
     val password: String? = null,
-    val name: String? = null
+    val name: String? = null,
+    val birthDate: String? = null,
+    val gender: String? = null
 ): UserEntityInterface

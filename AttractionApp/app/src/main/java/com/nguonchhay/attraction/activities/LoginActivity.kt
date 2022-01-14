@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
@@ -103,17 +104,16 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    fun firebaseLogin(emailVaue: String, passwordValue: String) {
-        firebaseAuth.signInWithEmailAndPassword(emailVaue, passwordValue)
+    fun firebaseLogin(emailValue: String, passwordValue: String) {
+        firebaseAuth.signInWithEmailAndPassword(emailValue, passwordValue)
             .addOnSuccessListener {
-                Toast.makeText(this, "Logged in as ${emailVaue}", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Logged in as $emailValue", Toast.LENGTH_LONG).show()
                 // Navigate to Main screen
-                val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                startActivity(intent)
+                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                 finish()
             }
             .addOnFailureListener { e ->
-                Toast.makeText(this, "login failed due to ${e.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@LoginActivity, "login failed due to ${e.message}", Toast.LENGTH_LONG).show()
             }
     }
 }
