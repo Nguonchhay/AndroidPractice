@@ -87,5 +87,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, CalculatorActivity::class.java)
             startActivity(intent)
         }
+
+        binding.btnTextInputAndDialog.setOnClickListener {
+            val intent = Intent(this, TextInputAndDialogActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
