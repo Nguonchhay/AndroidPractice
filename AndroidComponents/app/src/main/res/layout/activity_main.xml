@@ -3,122 +3,134 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_marginBottom="10dp">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
-        <Button
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btnViewComponent"
-            android:layout_marginStart="10dp"
-            android:text="View Compponents"/>
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginBottom="10dp">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnGridView"
-            android:layout_marginStart="10dp"
-            android:text="GridView"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnRegisterActivity"
+                android:layout_marginStart="10dp"
+                android:text="Relative Layout"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnFragmentStyle1"
-            android:layout_marginStart="10dp"
-            android:text="Fragment Style 1"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnViewComponent"
+                android:layout_marginStart="10dp"
+                android:text="View Compponents"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnCardView"
-            android:layout_marginStart="10dp"
-            android:text="CardView"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnGridView"
+                android:layout_marginStart="10dp"
+                android:text="GridView"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnListView"
-            android:layout_marginStart="10dp"
-            android:text="ListView"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnFragmentStyle1"
+                android:layout_marginStart="10dp"
+                android:text="Fragment Style 1"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnRecycleview"
-            android:layout_marginStart="10dp"
-            android:text="RecycleView"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnCardView"
+                android:layout_marginStart="10dp"
+                android:text="CardView"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnRecycleviewWithCardView"
-            android:layout_marginStart="10dp"
-            android:text="RecyclerView with CardView"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnListView"
+                android:layout_marginStart="10dp"
+                android:text="ListView"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnViewPager2"
-            android:layout_marginStart="10dp"
-            android:text="ViewPager2"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnRecycleview"
+                android:layout_marginStart="10dp"
+                android:text="RecycleView"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnViewPagerWithTab"
-            android:layout_marginStart="10dp"
-            android:text="ViewPager2 with Tab"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnRecycleviewWithCardView"
+                android:layout_marginStart="10dp"
+                android:text="RecyclerView with CardView"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnTabLayout"
-            android:layout_marginStart="10dp"
-            android:text="TabLayout"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnViewPager2"
+                android:layout_marginStart="10dp"
+                android:text="ViewPager2"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnBottomNav"
-            android:layout_marginStart="10dp"
-            android:text="Bottom Navigation"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnViewPagerWithTab"
+                android:layout_marginStart="10dp"
+                android:text="ViewPager2 with Tab"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnActivityForResult"
-            android:layout_marginStart="10dp"
-            android:text="Start Activity for Result"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnTabLayout"
+                android:layout_marginStart="10dp"
+                android:text="TabLayout"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnMVVMMinion"
-            android:layout_marginStart="10dp"
-            android:text="MVVM Minion"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnBottomNav"
+                android:layout_marginStart="10dp"
+                android:text="Bottom Navigation"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnMVVMStateFlow"
-            android:layout_marginStart="10dp"
-            android:text="MVVM StateFlow"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnActivityForResult"
+                android:layout_marginStart="10dp"
+                android:text="Start Activity for Result"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnTextInputAndDialog"
-            android:layout_marginStart="10dp"
-            android:text="TextInput and Dialog"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnMVVMMinion"
+                android:layout_marginStart="10dp"
+                android:text="MVVM Minion"/>
 
-    </LinearLayout>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnMVVMStateFlow"
+                android:layout_marginStart="10dp"
+                android:text="MVVM StateFlow"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnTextInputAndDialog"
+                android:layout_marginStart="10dp"
+                android:text="TextInput and Dialog"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>
