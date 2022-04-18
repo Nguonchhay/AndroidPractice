@@ -29,6 +29,10 @@ class MainActivity : AppCompatActivity() {
         setFragment(homeFragment)
         setBarTitle("Attraction App")
 
+        // Add badge
+        val badge = binding.bottomNavMain.getOrCreateBadge(R.id.menuAttraction)
+        badge.number = 5
+
         binding.bottomNavMain.setOnItemSelectedListener {
             when(it.itemId) {
                 R.id.menuHome -> {
