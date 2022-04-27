@@ -4,12 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/tnguonchhay/dev/android-practice/AndroidComponents/app/src/main/res/layout/activity_calculator.xml" value="0.1" />
+        <entry key="..\:/Users/tnguonchhay/dev/android-practice/AndroidComponents/app/src/main/res/layout/activity_grid_view_color.xml" value="0.16847826086956522" />
+        <entry key="..\:/Users/tnguonchhay/dev/android-practice/AndroidComponents/app/src/main/res/layout/activity_listview.xml" value="0.16847826086956522" />
         <entry key="..\:/Users/tnguonchhay/dev/android-practice/AndroidComponents/app/src/main/res/layout/activity_text_input_and_dialog.xml" value="0.1" />
         <entry key="..\:/Users/tnguonchhay/dev/android-practice/AndroidComponents/app/src/main/res/layout/activity_view_component.xml" value="0.16530797101449277" />
-        <entry key="app/src/main/res/drawable/custom_input.xml" value="0.30462962962962964" />
-        <entry key="app/src/main/res/drawable/rounded_edittext.xml" value="0.30462962962962964" />
-        <entry key="app/src/main/res/layout/activity_register.xml" value="0.20108695652173914" />
-        <entry key="app/src/main/res/layout/list_gender_items.xml" value="0.15070921985815602" />
+        <entry key="..\:/Users/tnguonchhay/dev/android-practice/AndroidComponents/app/src/main/res/layout/item_gridview_color.xml" value="0.16847826086956522" />
       </map>
     </option>
   </component>

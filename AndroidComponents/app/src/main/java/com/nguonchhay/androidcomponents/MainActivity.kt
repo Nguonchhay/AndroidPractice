@@ -32,6 +32,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.btnGridViewColor.setOnClickListener {
+            startActivity(Intent(this, GridViewColorActivity::class.java))
+        }
+
         binding.btnFragmentStyle1.setOnClickListener {
             val intent = Intent(this, FragmentStyle1Activity::class.java)
             startActivity(intent)
