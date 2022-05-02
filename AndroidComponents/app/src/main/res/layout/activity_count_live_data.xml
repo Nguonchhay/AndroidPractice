@@ -30,4 +30,11 @@
         android:layout_height="wrap_content"
         android:text=" - "/>
 
+    <Button
+        android:id="@+id/btnAuto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:text=" Set Auto Increase "/>
+
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -27,11 +27,16 @@ class CountLiveDataActivity : AppCompatActivity() {
         }
 
         binding.btnDecrease.setOnClickListener {
-            viewModel.decrease();
+            viewModel.decrease()
         }
 
-        viewModel._uiState.observe(this@CountLiveDataActivity, Observer {
-            binding.lblCount.text = it.toString()
+        binding.btnAuto.setOnClickListener {
+            viewModel.toggleAuto()
+        }
+
+        viewModel.uiState.observe(this@CountLiveDataActivity, Observer {
+            binding.lblCount.text = it.count.toString()
         })
+
     }
 }
