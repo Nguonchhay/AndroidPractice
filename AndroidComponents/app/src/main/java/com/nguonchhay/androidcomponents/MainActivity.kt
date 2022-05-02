@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.nguonchhay.androidcomponents.activities.*
 import com.nguonchhay.androidcomponents.databinding.ActivityMainBinding
 import com.nguonchhay.androidcomponents.mvvm_minion.view.CalculatorActivity
+import com.nguonchhay.androidcomponents.mvvm_minion.view.CountLiveDataActivity
 import com.nguonchhay.androidcomponents.mvvm_minion.view.MinionActivity
 
 class MainActivity : AppCompatActivity() {
@@ -90,6 +91,10 @@ class MainActivity : AppCompatActivity() {
         binding.btnMVVMMinion.setOnClickListener {
             val intent = Intent(this, MinionActivity::class.java)
             startActivity(intent)
+        }
+
+        binding.btnMVVMLiveData.setOnClickListener {
+            startActivity(Intent(this, CountLiveDataActivity::class.java))
         }
 
         binding.btnMVVMStateFlow.setOnClickListener {

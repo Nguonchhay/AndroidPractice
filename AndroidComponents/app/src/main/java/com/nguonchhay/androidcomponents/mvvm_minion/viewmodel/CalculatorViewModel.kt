@@ -15,7 +15,7 @@ class CalculatorViewModel : ViewModel() {
     data class CalculatorState (
         val result: Double = 0.0,
         val method: String = ""
-    ) {}
+    )
 
     fun sum(x: Double, y: Double) {
         viewModelScope.launch {

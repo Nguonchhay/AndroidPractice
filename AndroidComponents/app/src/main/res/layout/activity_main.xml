@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/btnFragmentStyle1"
                 android:layout_marginStart="10dp"
-                android:text="Fragment Style 1"/>
+                android:text="Fragment Pass data from Activity and binding"/>
 
             <Button
                 android:layout_width="wrap_content"
@@ -121,6 +121,13 @@
                 android:id="@+id/btnMVVMMinion"
                 android:layout_marginStart="10dp"
                 android:text="MVVM Minion"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnMVVMLiveData"
+                android:layout_marginStart="10dp"
+                android:text="MVVM LiveData"/>
 
             <Button
                 android:layout_width="wrap_content"
