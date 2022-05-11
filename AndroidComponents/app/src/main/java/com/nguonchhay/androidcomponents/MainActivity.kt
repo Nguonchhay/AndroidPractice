@@ -106,5 +106,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, TextInputAndDialogActivity::class.java)
             startActivity(intent)
         }
+
+        binding.btnRestfullAPI.setOnClickListener {
+            startActivity(Intent(this, RestfulAPIActivity::class.java))
+        }
     }
 }

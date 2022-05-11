@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.RestfulAPIActivity">
+
+    <Button
+        android:id="@+id/btnRetrofitGet"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Retrofit GET"
+        />
+
+    <Button
+        android:id="@+id/btnRetrofitPost"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Retrofit POST"
+        />
+
+    <Button
+        android:id="@+id/btnRetrofitPut"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Retrofit PUT"
+        />
+
+    <Button
+        android:id="@+id/btnKtorGet"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Ktor GET"/>
+
+    <Button
+        android:id="@+id/btnKtorPost"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Ktor POST"/>
+
+    <Button
+        android:id="@+id/btnKtorPut"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Ktor PUT"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

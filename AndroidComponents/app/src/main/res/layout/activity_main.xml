@@ -142,6 +142,13 @@
                 android:id="@+id/btnTextInputAndDialog"
                 android:layout_marginStart="10dp"
                 android:text="TextInput and Dialog"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnRestfullAPI"
+                android:layout_marginStart="10dp"
+                android:text="RESTful API"/>
         </LinearLayout>
 
     </ScrollView>

@@ -19,29 +19,29 @@ class RecyclerViewWithCardViewActivity : AppCompatActivity() {
 
         val minionData = mutableListOf<MinionCardData>(
             MinionCardData(
-                "Minion 1",
-                "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua",
-                R.drawable.minion1
+                title ="Minion 1",
+                description = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua",
+                image = R.drawable.minion1
             ),
             MinionCardData(
-                "Minion 2",
-                "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua",
-                R.drawable.minion1
+                title = "Minion 2",
+                description = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua",
+                image = R.drawable.minion1
             ),
             MinionCardData(
-                "Minion 3",
-                "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua",
-                R.drawable.minion1
+                title ="Minion 3",
+                description = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua",
+                image = R.drawable.minion1
             ),
             MinionCardData(
-                "Minion 4",
-                "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua",
-                R.drawable.minion1
+                title ="Minion 4",
+                description = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua",
+                image = R.drawable.minion1
             ),
             MinionCardData(
-                "Minion 5",
-                "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua",
-                R.drawable.minion1
+                title ="Minion 5",
+                description = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua",
+                image = R.drawable.minion1
             )
         )
 
