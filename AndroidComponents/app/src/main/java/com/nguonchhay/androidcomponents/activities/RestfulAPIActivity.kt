@@ -8,7 +8,9 @@ import androidx.lifecycle.lifecycleScope
 import com.nguonchhay.androidcomponents.R
 import com.nguonchhay.androidcomponents.databinding.ActivityRestfulApiactivityBinding
 import com.nguonchhay.androidcomponents.dataclasses.MinionCardData
+import com.nguonchhay.androidcomponents.dataclasses.MinionData
 import com.nguonchhay.androidcomponents.networks.RetrofitInstance
+import com.nguonchhay.androidcomponents.networks.api.MinionKtorInterface
 import com.nguonchhay.androidcomponents.networks.api.MinionRetrofitApiInterface
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.JsonObject
@@ -27,6 +29,9 @@ class RestfulAPIActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val retrofitMinionApi = RetrofitInstance.getInstance().create(MinionRetrofitApiInterface::class.java)
+        val ktorMinionApi by lazy {
+            MinionKtorInterface.create()
+        }
 
         binding.btnRetrofitGet.setOnClickListener {
             lifecycleScope.launch {
@@ -75,6 +80,45 @@ class RestfulAPIActivity : AppCompatActivity() {
                         Toast.makeText(this@RestfulAPIActivity, obj.data[0].title, Toast.LENGTH_SHORT).show()
                     }
                 }
+            }
+        }
+
+        binding.btnKtorGet.setOnClickListener {
+            lifecycleScope.launch {
+                val result = ktorMinionApi.list()
+                var titles = ""
+                result.data.forEach {
+                    titles += " ${it.title}"
+                }
+                Toast.makeText(this@RestfulAPIActivity, titles.toString(), Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        binding.btnKtorPost.setOnClickListener {
+            lifecycleScope.launch {
+                val result = ktorMinionApi.store(
+                    MinionData(
+                        title = "Minion 10",
+                        description = "This is minion 10",
+                        image = R.drawable.minion5
+                    )
+                )
+                Toast.makeText(this@RestfulAPIActivity, result.data[0].title, Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        binding.btnKtorPut.setOnClickListener {
+            lifecycleScope.launch {
+                val updateMinion = MinionData(
+                    id = 7,
+                    title = "Minion 11",
+                    description = "This is minion 11",
+                    image = R.drawable.minion5
+                )
+                val result = updateMinion.id?.let { it1 ->
+                    ktorMinionApi.update(it1, updateMinion)
+                }
+                Toast.makeText(this@RestfulAPIActivity, result!!.data[0].title, Toast.LENGTH_SHORT).show()
             }
         }
     }
