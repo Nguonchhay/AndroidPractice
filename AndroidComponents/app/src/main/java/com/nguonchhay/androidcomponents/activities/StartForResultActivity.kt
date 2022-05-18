@@ -34,8 +34,8 @@ class StartForResultActivity : AppCompatActivity() {
                     .getIntent(this@StartForResultActivity)
         }
 
-        override fun parseResult(resultCode: Int, intent: Intent?): Uri? {
-            return CropImage.getActivityResult(intent)?.uri
+        override fun parseResult(resultCode: Int, intent: Intent?): Uri {
+            return CropImage.getActivityResult(intent)?.uri!!
         }
     }
 

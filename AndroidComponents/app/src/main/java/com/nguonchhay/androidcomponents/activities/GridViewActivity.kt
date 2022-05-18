@@ -44,30 +44,30 @@ class GridViewActivity : AppCompatActivity() {
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.grid_view_menu, menu)
-
-        val search = menu?.findItem(R.id.menuGridViewSearch)
-        val searchView = search?.actionView as SearchView
-        searchView.queryHint = "Search"
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                Toast.makeText(this@GridViewActivity, "Submit: $query", Toast.LENGTH_SHORT).show()
-                // Apply full text search
-                return false
-            }
-            override fun onQueryTextChange(newText: String?): Boolean {
-                // Toast.makeText(this@GridViewActivity, "Typing: $newText", Toast.LENGTH_SHORT).show()
-                // Apply LIVE searching
-                return true
-            }
-        })
-
-        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
-
-        return true
-    }
+//    fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//        menuInflater.inflate(R.menu.grid_view_menu, menu)
+//
+//        val search = menu?.findItem(R.id.menuGridViewSearch)
+//        val searchView = search?.actionView as SearchView
+//        searchView.queryHint = "Search"
+//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+//            override fun onQueryTextSubmit(query: String?): Boolean {
+//                Toast.makeText(this@GridViewActivity, "Submit: $query", Toast.LENGTH_SHORT).show()
+//                // Apply full text search
+//                return false
+//            }
+//            override fun onQueryTextChange(newText: String?): Boolean {
+//                // Toast.makeText(this@GridViewActivity, "Typing: $newText", Toast.LENGTH_SHORT).show()
+//                // Apply LIVE searching
+//                return true
+//            }
+//        })
+//
+//        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+//        searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
+//
+//        return true
+//    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {

@@ -149,6 +149,13 @@
                 android:id="@+id/btnRestfullAPI"
                 android:layout_marginStart="10dp"
                 android:text="RESTful API"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnCalculatorCompose"
+                android:layout_marginStart="10dp"
+                android:text="Jetpack Compose"/>
         </LinearLayout>
 
     </ScrollView>

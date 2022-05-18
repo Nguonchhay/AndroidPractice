@@ -12,7 +12,7 @@ class ResultFromActivityContract : ActivityResultContract<Unit, String>() {
     }
 
 
-    override fun createIntent(context: Context, input: Unit?): Intent {
+    override fun createIntent(context: Context, input: Unit): Intent {
         return Intent(context, ResultFromStartActivity::class.java)
     }
 
